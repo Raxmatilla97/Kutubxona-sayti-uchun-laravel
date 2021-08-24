@@ -9,6 +9,7 @@ use App\Http\Controllers\UserManagementController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\LockScreen;
+use App\Http\Controllers\backend\BooksCategoryesController;
 
 
 /*
@@ -117,6 +118,9 @@ Route::post('f  orm/holidays/update', [App\Http\Controllers\HolidayController::c
 
 // ----------------------------- form leaves ------------------------------//
 Route::get('form/leaves/new', [App\Http\Controllers\LeavesController::class, 'leaves'])->middleware('auth')->name('form/leaves/new');
+
+// ----------------------------- Categories page ------------------------------//
+ Route::resource('library/categories', BooksCategoryesController::class)->middleware('auth');
 
 
 
