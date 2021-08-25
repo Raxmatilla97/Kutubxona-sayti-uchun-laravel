@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('backend.partials.login');
+    return view('frontend');
 });
 
 Route::get('/dashboard', function () {
