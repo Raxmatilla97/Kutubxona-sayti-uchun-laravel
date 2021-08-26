@@ -17,8 +17,19 @@ Route::get('/', function () {
     return view('frontend');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+
+
+
+Route::middleware(['auth'])->prefix('dashboard')->group(function () {
+    Route::get('/', function () {
+                return view('dashboard');
+    })->middleware(['auth'])->name('dashboard');
+    Route::resource('category', App\Http\Controllers\CategoryController::class);
+
+    Route::post('category_sub', [App\Http\Controllers\CategoryController::class, 'sub_store'])->name('category.sub_store');
+    
+
+});
+
 
 require __DIR__.'/auth.php';
