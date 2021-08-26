@@ -14,7 +14,9 @@ class BooksController extends Controller
      */
     public function index()
     {
-        //
+        $ebooks = Books::get();
+
+        return view('backend.pages.books', compact('ebooks'));
     }
 
     /**

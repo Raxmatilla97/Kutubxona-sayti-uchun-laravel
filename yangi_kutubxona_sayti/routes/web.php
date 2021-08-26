@@ -24,10 +24,14 @@ Route::middleware(['auth'])->prefix('dashboard')->group(function () {
     Route::get('/', function () {
                 return view('dashboard');
     })->middleware(['auth'])->name('dashboard');
-    Route::resource('category', App\Http\Controllers\CategoryController::class);
 
+    // Kutubxona kataloglarini shakillantiruvchi routlar tizimi
+    Route::resource('category', App\Http\Controllers\CategoryController::class);
     Route::post('category_sub', [App\Http\Controllers\CategoryController::class, 'sub_store'])->name('category.sub_store');
-    
+
+    // Kutubxona elektron resurslarini boshqarish va yangilash sahifalari routlari
+    Route::resource('books', App\Http\Controllers\BooksController::class);
+
 
 });
 

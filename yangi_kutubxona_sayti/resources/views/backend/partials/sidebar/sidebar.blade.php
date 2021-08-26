@@ -34,6 +34,29 @@
              </a>
          </li>
 
+         <li class="side-nav-item">
+             <a data-bs-toggle="collapse" href="#ebooks" aria-expanded="false" aria-controls="ebooks"
+                 class="side-nav-link">
+                 <i class="uil-store"></i>
+                 <span> Elektron kutubxona </span>
+                 <span class="menu-arrow"></span>
+             </a>
+             <div class="collapse" id="ebooks">
+                 <ul class="side-nav-second-level">
+                     <li>
+                         <a href="{{ route('books.index') }}">Elektron resurslar ro'yxati</a>
+                     </li>
+                     <li>
+                         <a href="apps-ecommerce-products-details.html">Products Details</a>
+                     </li>
+                     <li>
+                         <a href="apps-ecommerce-orders.html">Orders</a>
+                     </li>
+
+                 </ul>
+             </div>
+         </li>
+
          {{-- <li class="side-nav-item">
              <a href="apps-chat.html" class="side-nav-link">
                  <i class="uil-comments-alt"></i>

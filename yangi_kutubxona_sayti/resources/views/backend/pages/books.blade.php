@@ -44,69 +44,76 @@
                             <table class="table table-centered w-100 dt-responsive nowrap" id="products-datatable">
                                 <thead class="table-light">
                                     <tr>
-                                        <th class="all" style="width: 20px;">
-                                            <div class="form-check">
-                                                <input type="checkbox" class="form-check-input" id="customCheck1">
-                                                <label class="form-check-label" for="customCheck1">&nbsp;</label>
-                                            </div>
-                                        </th>
-                                        <th class="all">Product</th>
-                                        <th>Category</th>
-                                        <th>Added Date</th>
-                                        <th>Price</th>
-                                        <th>Quantity</th>
-                                        <th>Status</th>
-                                        <th style="width: 85px;">Action</th>
+
+                                        <th class="all">Elektron resurslar nomi</th>
+                                        <th>Bo'limi</th>
+                                        <th>Yaratilgan vaqt</th>
+                                        <th>Ko'rilgan</th>
+                                        <th>Aktivligi</th>
+                                        <th style="width: 85px;">Tahrirlash</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>
-                                            <div class="form-check">
-                                                <input type="checkbox" class="form-check-input" id="customCheck2">
-                                                <label class="form-check-label" for="customCheck2">&nbsp;</label>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <img src="{{ asset('assets/images/products/product-1.jpg') }}"
-                                                alt="contact-img" title="contact-img" class="rounded me-3" height="48">
-                                            <p class="m-0 d-inline-block align-middle font-16">
-                                                <a href="apps-ecommerce-products-details.html" class="text-body">Amazing
-                                                    Modern Chair</a>
-                                                <br>
-                                                <span class="text-warning mdi mdi-star"></span>
-                                                <span class="text-warning mdi mdi-star"></span>
-                                                <span class="text-warning mdi mdi-star"></span>
-                                                <span class="text-warning mdi mdi-star"></span>
-                                                <span class="text-warning mdi mdi-star"></span>
-                                            </p>
-                                        </td>
-                                        <td>
-                                            Aeron Chairs
-                                        </td>
-                                        <td>
-                                            09/12/2018
-                                        </td>
-                                        <td>
-                                            $148.66
-                                        </td>
 
-                                        <td>
-                                            254
-                                        </td>
-                                        <td>
-                                            <span class="badge bg-success">Active</span>
-                                        </td>
+                                    @foreach ($ebooks as $book)
+                                        <tr>
 
-                                        <td class="table-action">
-                                            <a href="javascript:void(0);" class="action-icon"> <i
-                                                    class="mdi mdi-eye"></i></a>
-                                            <a href="javascript:void(0);" class="action-icon"> <i
-                                                    class="mdi mdi-square-edit-outline"></i></a>
-                                            <a href="javascript:void(0);" class="action-icon"> <i
-                                                    class="mdi mdi-delete"></i></a>
-                                        </td>
-                                    </tr>
+                                            <td>
+                                                @if ($book->img == '')
+
+                                                @else
+                                                    <img src="{{ asset('assets/images/products/product-6.jpg') }}"
+                                                        alt="contact-img" title="contact-img" class="rounded me-3"
+                                                        height="48">
+                                                @endif
+
+                                                <p class="m-0 d-inline-block align-middle font-16">
+                                                    <a href="apps-ecommerce-products-details.html"
+                                                        class="text-body">{{ $book->title }}</a>
+                                                    <br>
+
+                                                </p>
+                                            </td>
+                                            <td>
+                                                <b>{{ $book->category->category_name }}</b>
+                                                <hr style="margin: -1px 0;">
+                                                {{ $book->subcategory->subcategory_name }}
+
+                                            </td>
+                                            <td>
+                                                {{ date('d-m-Y', strtotime($book->created_at)) }}
+                                            </td>
+
+
+                                            <td>
+                                                @if ($book->count_views == '')
+                                                    0 marta
+                                                @else
+                                                    {{ $book->count_views }} marta
+                                                @endif
+
+                                            </td>
+                                            <td>
+                                                @if ($book->has_active == 1)
+                                                    <span class="badge bg-success">Active</span>
+                                                @else
+                                                    <span class="badge bg-danger">Not active</span>
+                                                @endif
+
+                                            </td>
+
+                                            <td class="table-action">
+                                                <a href="javascript:void(0);" class="action-icon"> <i
+                                                        class="mdi mdi-eye"></i></a>
+                                                <a href="javascript:void(0);" class="action-icon"> <i
+                                                        class="mdi mdi-square-edit-outline"></i></a>
+                                                <a href="javascript:void(0);" class="action-icon"> <i
+                                                        class="mdi mdi-delete"></i></a>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+
+
 
                                 </tbody>
                             </table>
@@ -137,7 +144,7 @@
         <!-- third party js ends -->
 
         <!-- demo app -->
-        <script src="{{ asset('assets/js/pages/demo.products.js') }}"></script>
+        {{-- <script src="{{ asset('assets/js/pages/demo.products.js') }}"></script> --}}
         <!-- end demo js-->
 
     @endpush
