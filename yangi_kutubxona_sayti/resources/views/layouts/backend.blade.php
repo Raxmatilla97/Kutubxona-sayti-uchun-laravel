@@ -8,17 +8,17 @@
     <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description">
     <meta content="Coderthemes" name="author">
     <!-- App favicon -->
-    <link rel="shortcut icon" href="{{ 'assets/images/favicon.ico' }}">
+    <link rel="shortcut icon" href="{{ asset('assets/images/favicon.ico') }}">
 
     <!-- third party css -->
-    <link href="{{ 'assets/css/vendor/jquery-jvectormap-1.2.2.css' }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('assets/css/vendor/jquery-jvectormap-1.2.2.css') }}" rel="stylesheet" type="text/css">
     <!-- third party css end -->
 
     <!-- App css -->
-    <link href="{{ 'assets/css/icons.min.css' }}" rel="stylesheet" type="text/css">
-    <link href="{{ 'assets/css/app.min.css' }}" rel="stylesheet" type="text/css" id="light-style">
-    <link href="{{ 'assets/css/app-dark.min.css' }}" rel="stylesheet" type="text/css" id="dark-style">
-
+    <link href="{{ asset('assets/css/icons.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('assets/css/app.min.css') }}" rel="stylesheet" type="text/css" id="light-style">
+    <link href="{{ asset('assets/css/app-dark.min.css') }}" rel="stylesheet" type="text/css" id="dark-style">
+    @stack('css')
 </head>
 
 <body class="loading" data-layout="detached"
@@ -32,10 +32,10 @@
         <!-- LOGO -->
         <a href="index.html" class="topnav-logo">
             <span class="topnav-logo-lg">
-                <img src="{{ 'assets/images/logo-light.png' }}" alt="" height="16">
+                <img src="{{ asset('assets/images/logo-light.png') }}" alt="" height="16">
             </span>
             <span class="topnav-logo-sm">
-                <img src="{{ 'assets/images/logo_sm.png' }}" alt="" height="16">
+                <img src="{{ asset('assets/images/logo_sm.png') }}" alt="" height="16">
             </span>
         </a>
 
@@ -57,33 +57,37 @@
             <li class="dropdown notification-list topbar-dropdown d-none d-lg-block">
                 <a class="nav-link dropdown-toggle arrow-none" data-bs-toggle="dropdown" id="topbar-languagedrop"
                     href="#" role="button" aria-haspopup="true" aria-expanded="false">
-                    <img src="{{ 'assets/images/flags/us.jpg' }}" alt="user-image" class="me-1" height="12"> <span
-                        class="align-middle">English</span> <i class="mdi mdi-chevron-down"></i>
+                    <img src="{{ asset('assets/images/flags/us.jpg') }}" alt="user-image" class="me-1" height="12">
+                    <span class="align-middle">English</span> <i class="mdi mdi-chevron-down"></i>
                 </a>
                 <div class="dropdown-menu dropdown-menu-end dropdown-menu-animated topbar-dropdown-menu"
                     aria-labelledby="topbar-languagedrop">
 
                     <!-- item-->
                     <a href="javascript:void(0);" class="dropdown-item notify-item">
-                        <img src="{{ 'assets/images/flags/germany.jpg' }}" alt="user-image" class="me-1" height="12">
+                        <img src="{{ asset('assets/images/flags/germany.jpg') }}" alt="user-image" class="me-1"
+                            height="12">
                         <span class="align-middle">German</span>
                     </a>
 
                     <!-- item-->
                     <a href="javascript:void(0);" class="dropdown-item notify-item">
-                        <img src="{{ 'assets/images/flags/italy.jpg' }}" alt="user-image" class="me-1" height="12">
+                        <img src="{{ asset('assets/images/flags/italy.jpg') }}" alt="user-image" class="me-1"
+                            height="12">
                         <span class="align-middle">Italian</span>
                     </a>
 
                     <!-- item-->
                     <a href="javascript:void(0);" class="dropdown-item notify-item">
-                        <img src="{{ 'assets/images/flags/spain.jpg' }}" alt="user-image" class="me-1" height="12">
+                        <img src="{{ asset('assets/images/flags/spain.jpg') }}" alt="user-image" class="me-1"
+                            height="12">
                         <span class="align-middle">Spanish</span>
                     </a>
 
                     <!-- item-->
                     <a href="javascript:void(0);" class="dropdown-item notify-item">
-                        <img src="{{ 'assets/images/flags/russia.jpg' }}" alt="user-image" class="me-1" height="12">
+                        <img src="{{ asset('assets/images/flags/russia.jpg') }}" alt="user-image" class="me-1"
+                            height="12">
                         <span class="align-middle">Russian</span>
                     </a>
 
@@ -134,8 +138,8 @@
                         <!-- item-->
                         <a href="javascript:void(0);" class="dropdown-item notify-item">
                             <div class="notify-icon">
-                                <img src="{{ 'assets/images/users/avatar-2.jpg' }}" class="img-fluid rounded-circle"
-                                    alt="">
+                                <img src="{{ asset('assets/images/users/avatar-2.jpg') }}"
+                                    class="img-fluid rounded-circle" alt="">
                             </div>
                             <p class="notify-details">Cristina Pride</p>
                             <p class="text-muted mb-0 user-msg">
@@ -156,8 +160,8 @@
                         <!-- item-->
                         <a href="javascript:void(0);" class="dropdown-item notify-item">
                             <div class="notify-icon">
-                                <img src="{{ 'assets/images/users/avatar-4.jpg' }}" class="img-fluid rounded-circle"
-                                    alt="">
+                                <img src="{{ asset('assets/images/users/avatar-4.jpg') }}"
+                                    class="img-fluid rounded-circle" alt="">
                             </div>
                             <p class="notify-details">Karen Robinson</p>
                             <p class="text-muted mb-0 user-msg">
@@ -196,19 +200,19 @@
                         <div class="row g-0">
                             <div class="col">
                                 <a class="dropdown-icon-item" href="#">
-                                    <img src="{{ 'assets/images/brands/slack.png' }}" alt="slack">
+                                    <img src="{{ asset('assets/images/brands/slack.png') }}" alt="slack">
                                     <span>Slack</span>
                                 </a>
                             </div>
                             <div class="col">
                                 <a class="dropdown-icon-item" href="#">
-                                    <img src="{{ 'assets/images/brands/github.png' }}" alt="Github">
+                                    <img src="{{ asset('assets/images/brands/github.png') }}" alt="Github">
                                     <span>GitHub</span>
                                 </a>
                             </div>
                             <div class="col">
                                 <a class="dropdown-icon-item" href="#">
-                                    <img src="{{ 'assets/images/brands/dribbble.png' }}" alt="dribbble">
+                                    <img src="{{ asset('assets/images/brands/dribbble.png') }}" alt="dribbble">
                                     <span>Dribbble</span>
                                 </a>
                             </div>
@@ -217,19 +221,19 @@
                         <div class="row g-0">
                             <div class="col">
                                 <a class="dropdown-icon-item" href="#">
-                                    <img src="{{ 'assets/images/brands/bitbucket.png' }}" alt="bitbucket">
+                                    <img src="{{ asset('assets/images/brands/bitbucket.png') }}" alt="bitbucket">
                                     <span>Bitbucket</span>
                                 </a>
                             </div>
                             <div class="col">
                                 <a class="dropdown-icon-item" href="#">
-                                    <img src="{{ 'assets/images/brands/dropbox.png' }}" alt="dropbox">
+                                    <img src="{{ asset('assets/images/brands/dropbox.png') }}" alt="dropbox">
                                     <span>Dropbox</span>
                                 </a>
                             </div>
                             <div class="col">
                                 <a class="dropdown-icon-item" href="#">
-                                    <img src="{{ 'assets/images/brands/g-suite.png' }}" alt="G Suite">
+                                    <img src="{{ asset('assets/images/brands/g-suite.png') }}" alt="G Suite">
                                     <span>G Suite</span>
                                 </a>
                             </div>
@@ -250,7 +254,8 @@
                 <a class="nav-link dropdown-toggle nav-user arrow-none me-0" data-bs-toggle="dropdown"
                     id="topbar-userdrop" href="#" role="button" aria-haspopup="true" aria-expanded="false">
                     <span class="account-user-avatar">
-                        <img src="{{ 'assets/images/users/avatar-1.jpg' }}" alt="user-image" class="rounded-circle">
+                        <img src="{{ asset('assets/images/users/avatar-1.jpg') }}" alt="user-image"
+                            class="rounded-circle">
                     </span>
                     <span>
                         <span class="account-user-name">Soeng Souy</span>
@@ -346,8 +351,9 @@
                     <!-- item-->
                     <a href="javascript:void(0);" class="dropdown-item notify-item">
                         <div class="d-flex">
-                            <img class="d-flex me-2 rounded-circle" src="{{ 'assets/images/users/avatar-2.jpg' }}"
-                                alt="Generic placeholder image" height="32">
+                            <img class="d-flex me-2 rounded-circle"
+                                src="{{ asset('assets/images/users/avatar-2.jpg') }}" alt="Generic placeholder image"
+                                height="32">
                             <div class="w-100">
                                 <h5 class="m-0 font-14">Erwin Brown</h5>
                                 <span class="font-12 mb-0">UI Designer</span>
@@ -358,8 +364,9 @@
                     <!-- item-->
                     <a href="javascript:void(0);" class="dropdown-item notify-item">
                         <div class="d-flex">
-                            <img class="d-flex me-2 rounded-circle" src="{{ 'assets/images/users/avatar-5.jpg' }}"
-                                alt="Generic placeholder image" height="32">
+                            <img class="d-flex me-2 rounded-circle"
+                                src="{{ asset('assets/images/users/avatar-5.jpg') }}" alt="Generic placeholder image"
+                                height="32">
                             <div class="w-100">
                                 <h5 class="m-0 font-14">Jacob Deo</h5>
                                 <span class="font-12 mb-0">Developer</span>
@@ -397,18 +404,20 @@
 
 
 <!-- bundle -->
-<script src="{{ 'assets/js/vendor.min.js' }}"></script>
-<script src="{{ 'assets/js/app.min.js' }}"></script>
+<script src="{{ asset('assets/js/vendor.min.js') }}"></script>
+<script src="{{ asset('assets/js/app.min.js') }}"></script>
 
 <!-- third party js -->
-<script src="{{ 'assets/js/vendor/apexcharts.min.js' }}"></script>
-<script src="{{ 'assets/js/vendor/jquery-jvectormap-1.2.2.min.js' }}"></script>
-<script src="{{ 'assets/js/vendor/jquery-jvectormap-world-mill-en.js' }}"></script>
+<script src="{{ asset('assets/js/vendor/apexcharts.min.js') }}"></script>
+<script src="{{ asset('assets/js/vendor/jquery-jvectormap-1.2.2.min.js') }}"></script>
+<script src="{{ asset('assets/js/vendor/jquery-jvectormap-world-mill-en.js') }}"></script>
 <!-- third party js ends -->
 
 <!-- demo app -->
-<script src="{{ 'assets/js/pages/demo.dashboard.js' }}"></script>
+<script src="{{ asset('assets/js/pages/demo.dashboard.js') }}"></script>
 <!-- end demo js-->
+
+@stack('script')
 
 
 </html>
