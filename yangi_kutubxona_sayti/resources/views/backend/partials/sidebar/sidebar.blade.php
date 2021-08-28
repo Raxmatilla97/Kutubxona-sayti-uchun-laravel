@@ -3,9 +3,9 @@
 
      <div class="leftbar-user">
          <a href="javascript: void(0);">
-             <img src="{{ asset('assets/images/users/avatar-1.jpg') }}" alt="user-image" height="42"
+             <img src="{{ asset('assets/images/003i22.png') }}" alt="user-image" height="100"
                  class="rounded-circle shadow-sm">
-             <span class="leftbar-user-name">Soeng Souy</span>
+             <span class="leftbar-user-name">TVCHDPI KUTUBXONA - v2</span>
          </a>
      </div>
 
@@ -47,7 +47,7 @@
                          <a href="{{ route('books.index') }}">Elektron resurslar ro'yxati</a>
                      </li>
                      <li>
-                         <a href="apps-ecommerce-products-details.html">Products Details</a>
+                         <a href="{{ route('books.create') }}">Resurs qo'shish</a>
                      </li>
                      <li>
                          <a href="apps-ecommerce-orders.html">Orders</a>
