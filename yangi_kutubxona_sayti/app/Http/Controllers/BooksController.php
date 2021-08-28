@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Books;
+use App\Models\Category;
+
 use Illuminate\Http\Request;
 
 class BooksController extends Controller
@@ -14,7 +16,7 @@ class BooksController extends Controller
      */
     public function index()
     {
-        $ebooks = Books::get();
+        $ebooks = Books::all();
 
         return view('backend.pages.books', compact('ebooks'));
     }
@@ -26,7 +28,8 @@ class BooksController extends Controller
      */
     public function create()
     {
-        //
+        $categories = Category::all();
+        return view('backend.pages.books-create', compact('categories'));
     }
 
     /**
