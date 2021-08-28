@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Support\Facades\Request;
+use App\Models\Subcategory;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,7 +18,13 @@ Route::get('/', function () {
     return view('frontend');
 });
 
+Route::get('ajax-subcat', function () {
+    $cat_id = Request::get('cat_id');
 
+    $subcategories = Subcategory::where('category_id', '=', $cat_id)->get();
+
+    return Response::json($subcategories);
+});
 
 
 Route::middleware(['auth'])->prefix('dashboard')->group(function () {
@@ -31,6 +38,7 @@ Route::middleware(['auth'])->prefix('dashboard')->group(function () {
 
     // Kutubxona elektron resurslarini boshqarish va yangilash sahifalari routlari
     Route::resource('books', App\Http\Controllers\BooksController::class);
+
 
 
 });
