@@ -57,6 +57,13 @@
              </div>
          </li>
 
+         <li class="side-nav-item">
+             <a href="{{ route('libraries.index') }}" class="side-nav-link">
+                 <i class="uil-calender"></i>
+                 <span> OTM Kutubxonalari </span>
+             </a>
+         </li>
+
          {{-- <li class="side-nav-item">
              <a href="apps-chat.html" class="side-nav-link">
                  <i class="uil-comments-alt"></i>

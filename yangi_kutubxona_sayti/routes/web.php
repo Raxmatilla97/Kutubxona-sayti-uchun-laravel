@@ -39,6 +39,10 @@ Route::middleware(['auth'])->prefix('dashboard')->group(function () {
     // Kutubxona elektron resurslarini boshqarish va yangilash sahifalari routlari
     Route::resource('books', App\Http\Controllers\BooksController::class);
 
+    //Kutubxonalarni kirgizish routelari
+    Route::resource('/libraries', App\Http\Controllers\KutubxonalarController::class);
+
+
 
 
 });
