@@ -15,6 +15,11 @@ class CreateKutubxonalarsTable extends Migration
     {
         Schema::create('kutubxonalars', function (Blueprint $table) {
             $table->id();
+            $table->string('title');
+            $table->string('manzil');
+            $table->string('img')->nullable();
+            $table->string('slug');
+            $table->longText('description')->nullable();
             $table->timestamps();
         });
     }
