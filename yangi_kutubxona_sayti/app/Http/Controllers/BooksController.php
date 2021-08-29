@@ -85,6 +85,9 @@ class BooksController extends Controller
      */
     public function destroy(Books $books)
     {
-        //
+        $books->delete();
+
+        return redirect()->route('libraries.index')
+            ->with('success', "Siz belgilagan kutubxona o'chirildi!");
     }
 }
