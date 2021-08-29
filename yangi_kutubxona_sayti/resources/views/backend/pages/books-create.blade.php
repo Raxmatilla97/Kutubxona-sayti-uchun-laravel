@@ -37,8 +37,11 @@
 
                                 <div class="mb-3">
                                     <label for="description" class="form-label">Resurs haqida to'liqroq ma'lumot</label>
-                                    <textarea class="form-control" id="description" name="description" rows="10"
+
+                                    <textarea class="form-control my-editor" name="description" rows="15"
                                         placeholder="Resurs haqida qisqacha matin yoki ma'lumotlar yozishingiz mumkin..."></textarea>
+
+
                                 </div>
 
                                 <div class="col-xl-12 mb-0">
@@ -126,14 +129,17 @@
 
 
     @push('css')
+        <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+        <script>
+            tinymce.init({
+                selector: 'textarea'
+            });
+        </script>
 
     @endpush
 
     @push('script')
-        <!-- plugin js -->
-        <script src="{{ asset('assets/js/vendor/dropzone.min.js') }}"></script>
-        <!-- init js -->
-        <script src="{{ asset('assets/js/ui/component.fileupload.js') }}"></script>
+
 
         <script>
             $('#category').on('change', function(e) {
