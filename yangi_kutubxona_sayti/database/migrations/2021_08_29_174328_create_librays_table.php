@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateKutubxonalarsTable extends Migration
+class CreateLibraysTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,13 @@ class CreateKutubxonalarsTable extends Migration
      */
     public function up()
     {
-        Schema::create('kutubxonalars', function (Blueprint $table) {
+        Schema::create('librays', function (Blueprint $table) {
             $table->id();
             $table->string('title');
             $table->string('manzil');
             $table->string('img')->nullable();
             $table->string('slug');
-            $table->longText('description')->nullable();
+            $table->text('description')->nullable();
             $table->timestamps();
         });
     }
@@ -31,6 +31,6 @@ class CreateKutubxonalarsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('kutubxonalars');
+        Schema::dropIfExists('librays');
     }
 }

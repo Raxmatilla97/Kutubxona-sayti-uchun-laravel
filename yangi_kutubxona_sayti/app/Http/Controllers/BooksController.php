@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Books;
 use App\Models\Category;
+use App\Models\Libray;
+use App\Models\TemoraryFile;
 
 use Illuminate\Http\Request;
 
@@ -28,8 +30,9 @@ class BooksController extends Controller
      */
     public function create()
     {
+        $kutubxonalar = Libray::all();
         $categories = Category::all();
-        return view('backend.pages.books-create', compact('categories'));
+        return view('backend.pages.books-create', compact('categories', 'kutubxonalar'));
     }
 
     /**
@@ -40,7 +43,14 @@ class BooksController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $temporaryFile = TemoraryFile::where('folder', $request->img)->first();
+        if ($temporaryFile) {
+            $request->addMedia(storage_path('app/public/book-images/tmp/' . $request->img . '/' . $temporaryFile->filename))
+            ->toMediaCollection('img');
+            rmdir(storage_path('app/public/book-images/tmp/'. $request->img));
+            $temporaryFile->delete();
+        }
+
     }
 
     /**
@@ -85,6 +95,7 @@ class BooksController extends Controller
      */
     public function destroy(Books $books)
     {
+
         $books->delete();
 
         return redirect()->route('libraries.index')

@@ -38,7 +38,7 @@
                     <div class="card-body">
                         <div class="row mb-2">
                             <div class="col-sm-4">
-                                <a href="{{ route('libraries.create') }}" class="btn btn-danger mb-2"><i
+                                <a href="{{ route('library.create') }}" class="btn btn-danger mb-2"><i
                                         class="mdi mdi-plus-circle me-2"></i> Yangi Kitobxona qo'shish</a>
                             </div>
                             {{-- <div class="col-sm-8">
@@ -96,16 +96,16 @@
 
 
                                             <td class="table-action">
-                                                <form action="{{ route('libraries.destroy', $library->id) }}"
-                                                    method="POST">
-
-                                                    <a href="{{ route('libraries.show', $library->id) }}"
+                                                <form action="{{ route('library.destroy', $library->id) }}" method="POST">
+                                                    @csrf
+                                                    <a href="{{ route('library.show', $library->id) }}"
                                                         class="action-icon">
                                                         <i class="mdi mdi-eye"></i></a>
-                                                    <a href="{{ route('libraries.edit', $library->id) }}"
+
+                                                    <a href="{{ route('library.edit', $library->id) }}"
                                                         class="action-icon">
                                                         <i class="mdi mdi-square-edit-outline"></i></a>
-                                                    @csrf
+
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger"><i
                                                             class="mdi mdi-delete"></i></button>
@@ -120,7 +120,7 @@
                             </table>
                         </div>
 
-                        {!! $kutubxonalar->links() !!}
+                        {{-- {!! $kutubxonalar->links() !!} --}}
                     </div> <!-- end card-body-->
 
                 </div> <!-- end card-->

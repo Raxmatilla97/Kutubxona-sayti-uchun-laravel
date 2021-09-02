@@ -36,7 +36,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        <form action="{{ route('libraries.store') }}" method="post" enctype="multipart/form-data">
+                        <form action="{{ route('library.store') }}" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="row">
                                 <div class="col-xl-12">

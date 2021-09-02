@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Kutubxonalar;
+use App\Models\Libray;
 use Illuminate\Http\Request;
 
-class KutubxonalarController extends Controller
+class LibrayController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +14,13 @@ class KutubxonalarController extends Controller
      */
     public function index()
     {
-        $kutubxonalar = Kutubxonalar::latest()->paginate(5);
+        $kutubxonalar = Libray::latest()->paginate(5);
 
         return view('backend.pages.library-list', compact('kutubxonalar'))->with('i', (request()->input('page', 1) - 1) * 5);
+
+        // $kutubxonalar = Libray::all();
+
+        // return view('backend.pages.library-list', compact('kutubxonalar'));
     }
 
     /**
@@ -44,7 +48,7 @@ class KutubxonalarController extends Controller
 
         ]);
 
-        $kutubxona = new Kutubxonalar();
+        $kutubxona = new Libray();
 
         $kutubxona->title = $request['title'];
         $kutubxona->manzil = $request['manzil'];
@@ -52,7 +56,7 @@ class KutubxonalarController extends Controller
 
         // Manzilni avtomatik slug qiberadi
         $kutubxona->slug = str_slug($request['title']);
-        $latestSlug = Kutubxonalar::whereRaw("slug RLIKE '^{$kutubxona->slug}(-[0-9]*)?$'")->latest('id')->value('slug');
+        $latestSlug = Libray::whereRaw("slug RLIKE '^{$kutubxona->slug}(-[0-9]*)?$'")->latest('id')->value('slug');
         if ($latestSlug) {
             $pieces = explode('-', $latestSlug);
             $number = intval(end($pieces));
@@ -73,27 +77,28 @@ class KutubxonalarController extends Controller
 
         $kutubxona->save();
 
-        return redirect()->route('libraries.index')->with('success',"Siz kiritgan kutubxona ma'lumotlari bazaga kiritildi");
+        return redirect()->route('library.index')->with('success',"Siz kiritgan kutubxona ma'lumotlari bazaga kiritildi");
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Kutubxonalar  $kutubxonalar
+     * @param  \App\Models\Libray  $libray
      * @return \Illuminate\Http\Response
      */
-    public function show(Kutubxonalar $kutubxonalar)
+    public function show($id)
     {
-        //
+        $libray = Libray::findOrFail($id);
+        dd($libray);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Kutubxonalar  $kutubxonalar
+     * @param  \App\Models\Libray  $libray
      * @return \Illuminate\Http\Response
      */
-    public function edit(Kutubxonalar $kutubxonalar)
+    public function edit(Libray $libray)
     {
         //
     }
@@ -102,10 +107,10 @@ class KutubxonalarController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Kutubxonalar  $kutubxonalar
+     * @param  \App\Models\Libray  $libray
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Kutubxonalar $kutubxonalar)
+    public function update(Request $request, Libray $libray)
     {
         //
     }
@@ -113,11 +118,15 @@ class KutubxonalarController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Kutubxonalar  $kutubxonalar
+     * @param  \App\Models\Libray  $libray
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Kutubxonalar $kutubxonalar)
+    public function destroy($id)
     {
-        //
+        $libray = Libray::findOrFail($id);
+        $libray->delete();
+
+        return redirect()->route('library.index')
+            ->with('success', "Siz belgilagan kutubxona o'chirildi!");
     }
 }

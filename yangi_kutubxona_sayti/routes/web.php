@@ -27,6 +27,10 @@ Route::get('ajax-subcat', function () {
 });
 
 
+// File uploadning Api qismi
+
+Route::post('/upload', [App\Http\Controllers\UploadController::class, 'store']);
+
 Route::middleware(['auth'])->prefix('dashboard')->group(function () {
     Route::get('/', function () {
                 return view('dashboard');
@@ -40,12 +44,11 @@ Route::middleware(['auth'])->prefix('dashboard')->group(function () {
     Route::resource('books', App\Http\Controllers\BooksController::class);
 
     //Kutubxonalarni kirgizish routelari
-    Route::resource('/libraries', App\Http\Controllers\KutubxonalarController::class);
-
-
+    Route::resource('library', App\Http\Controllers\LibrayController::class);
 
 
 });
+
 
 
 require __DIR__.'/auth.php';
